@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Custom styles for dots */
+.custom-dots ul {
+  @apply flex justify-center p-0 m-0 list-none;
+}
+
+.custom-dot {
+  @apply w-2.5 h-2.5 rounded-full mx-1 transition-colors duration-300;
+  background-color: rgb(183, 179, 179); /* Default color for light mode */
+  position: relative;
+  top: 8px; /* Move dots down by 10px */
+}
+
+.custom-dot:hover,
+.slick-active .custom-dot {
+  @apply bg-gray-600; /* Color when active or hovered */
+}
+
+.dark .custom-dot {
+  background-color: grey; /* Color in dark mode */
+}
+
+.dark .slick-active .custom-dot {
+  @apply bg-white; /* Color when active or hovered in dark mode */
+}
+
+
+@layer base {
+    h1 {
+      @apply text-2xl font-bold md:text-4xl;
+    }
+  
+    h2 {
+      @apply text-xl font-bold md:text-3xl;
+    }
+  
+    h3 {
+      @apply text-lg font-bold md:text-2xl;
+    }
+  
+    h4 {
+      @apply text-base font-bold md:text-lg;
+    }
+  
+    body {
+      @apply text-sm md:text-base;
+    }
+  }
+  @layer utilities {
+    .h1 {
+      @apply text-2xl font-bold md:text-4xl;
+    }
+  
+    .h2 {
+      @apply text-xl font-bold md:text-3xl;
+    }
+  
+    .h3 {
+      @apply text-lg font-bold md:text-2xl;
+    }
+  
+    .h4 {
+      @apply text-base font-bold md:text-lg;
+    }
+  }
+  
+  @layer components {
+    .preloader {
+      @apply text-center max-w-80 w-full ;
+    }
+    .cart {
+      display: block;
+      margin: 0 auto 1.5em auto;
+      @apply size-32 ;
+    }
+    .cart__lines,
+    .cart__top,
+    .cart__wheel1,
+    .cart__wheel2,
+    .cart__wheel-stroke {
+      animation: cartLines 2s ease-in-out infinite;
+    }
+    .cart__lines {
+      stroke: rgb(37, 244, 140);
+    }
+    .cart__top {
+      animation-name: cartTop;
+    }
+    .cart__wheel1 {
+      animation-name: cartWheel1;
+      transform: rotate(-0.25turn);
+      transform-origin: 43px 111px;
+    }
+    .cart__wheel2 {
+      animation-name: cartWheel2;
+      transform: rotate(0.25turn);
+      transform-origin: 102px 111px;
+    }
+    .cart__wheel-stroke {
+      animation-name: cartWheelStroke;
+    }
+    .cart__track {
+      stroke: rgba(23, 28, 26, 0.1);
+      transition: stroke .3s;
+    }
+  
+  
+    /* Animations */
+    @keyframes cartLines {
+      from,
+      to {
+        opacity: 0;
+      }
+      8%,
+      92% {
+        opacity: 1;
+      }
+    }
+    @keyframes cartTop {
+      from {
+        stroke-dashoffset: -338;
+      }
+      50% {
+        stroke-dashoffset: 0;
+      }
+      to {
+        stroke-dashoffset: 338;
+      }
+    }
+    @keyframes cartWheel1 {
+      from {
+        transform: rotate(-0.25turn);
+      }
+      to {
+        transform: rotate(2.75turn);
+      }
+    }
+    @keyframes cartWheel2 {
+      from {
+        transform: rotate(0.25turn);
+      }
+      to {
+        transform: rotate(3.25turn);
+      }
+    }
+    @keyframes cartWheelStroke {
+      from,
+      to {
+        stroke-dashoffset: 81.68;
+      }
+      50% {
+        stroke-dashoffset: 40.84;
+      }
+    }
+  }
