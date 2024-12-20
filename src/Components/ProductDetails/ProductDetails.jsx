@@ -12,7 +12,6 @@ import Loading from "./../Loading/Loading";
 
 export default function ProductDetails() {
   const [btnLoading, setBtnLoading] = useState(false);
-
   const { addProductToCart, setNumOfCartItems } = useContext(CartContext);
   //call function emta ??????????? onClick => shatra ya fofo bs estny enty me7taga teshofy el data el rag3a 34an ht3rdy mnha shwyt infooooooo tb a3ml eh ??? function ba2a dorha tehndle el 7etta de
   async function handleAddProductToCart(pID) {
